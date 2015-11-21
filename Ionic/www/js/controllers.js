@@ -9,7 +9,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  $scope.me = {};
+  $scope.me = {hey: 'test'};
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -101,6 +101,12 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     Feed.getArticlesForUser()
       .then(function (articles){
         $scope.articles = articles;
+        var temp = articles.data;
+        temp.forEach(function(el){
+          el.articles.forEach(function(one){
+            console.log(one.title);
+          })
+        })
       });
   }
 
